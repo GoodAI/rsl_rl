@@ -61,11 +61,11 @@ class EnvEncoder(nn.Module):
         layers = []
         # layers.append(nn.Linear(num_env_params, num_env_params * 64))
         layers.append(nn.Linear(num_env_params, 128))
-        layers.append(nn.BatchNorm1d(128))
+        # layers.append(nn.BatchNorm1d(128))
         layers.append(nn.ReLU(inplace=True))
         # layers.append(nn.Linear(num_env_params * 64, num_env_params * 32))
         layers.append(nn.Linear(128, 128))
-        layers.append(nn.BatchNorm1d(128))
+        # layers.append(nn.BatchNorm1d(128))
         layers.append(nn.ReLU(inplace=True))
         # layers.append(nn.Linear(num_env_params * 32, 32))
         layers.append(nn.Linear(128, 32))
