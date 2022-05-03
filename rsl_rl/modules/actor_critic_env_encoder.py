@@ -11,7 +11,9 @@ class ActorCriticEnvEncoder(ActorCritic):
                         critic_hidden_dims=[256, 256, 256],
                         activation='elu',
                         init_noise_std=1.0,
-                        num_env_params=3,
+                        num_env_params=12,
+                        xt_index = -1,
+                        action_index = -1,
                         **kwargs):
         if kwargs:
             print("ActorCriticEnvEncoder.__init__ got unexpected arguments, which will be ignored: " + str(kwargs.keys()),)
@@ -29,6 +31,10 @@ class ActorCriticEnvEncoder(ActorCritic):
         self.encoder_actor = EnvEncoder(num_env_params)
         self.encoder_critic = EnvEncoder(num_env_params)
         self.extrinsics = None
+
+        self.xt_index = xt_index
+        self.action_index = action_index
+        self.iter = 0
 
     def get_extrinsics(self):
         return self.extrinsics
