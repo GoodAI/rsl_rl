@@ -137,6 +137,9 @@ class ActorCritic(nn.Module):
         value = self.critic(critic_observations)
         return value
 
+    def save_extra_data(self, path):
+        pass
+
 def get_activation(act_name):
     if act_name == "elu":
         return nn.ELU()
